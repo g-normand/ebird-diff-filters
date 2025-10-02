@@ -6,3 +6,5 @@ make verify_filter
 
 To get the infos:
 https://ebird.org/region/EC-A/bird-list => Save as azuay_list.html
+https://review.ebird.org/admin/viewFilter.htm?checklistID=CL24828 => Save as active_filter.html
+https://review.ebird.org/admin/viewFilter.htm?checklistID=CL34068 => Save as azuay_filter.html

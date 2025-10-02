@@ -1,0 +1,5 @@
+make pip
+make diff_filters
+
+To verify the Azuay filter is working well:
+make verify_filter

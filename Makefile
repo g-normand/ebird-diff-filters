@@ -32,3 +32,8 @@ diff_filters:
 verify_filter:
 	$(VENV) && python3 verify_filter.py
 
+cuenca_birds:
+	$(VENV) && python3 cuenca_birds.py
+
+bird_list:
+	$(VENV) && python3 bird_list.py

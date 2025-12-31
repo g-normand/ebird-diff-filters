@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup  
-from datetime import datetime
+from datetime import datetime, timedelta
 
 def extract_observation_dates(file_path):
     with open(file_path, encoding='utf-8') as f:
@@ -72,3 +72,5 @@ for name, info in sorted_data.items():
         print(f"{name}: {info}")
     elif info['value'] > 0 and 'last_seen' not in info:
         print(f"{name}: {info}")
+    elif 'last_seen' in info and info['last_seen'] < datetime.now() - timedelta(days=1000):
+        print(f"NEED A CHECK : {name}: {info}")

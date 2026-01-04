@@ -1,9 +1,11 @@
-from bs4 import BeautifulSoup  
+from bs4 import BeautifulSoup
+import requests
 from datetime import datetime, timedelta
 
-def extract_observation_dates(file_path):
-    with open(file_path, encoding='utf-8') as f:
-        soup = BeautifulSoup(f, 'html.parser')
+
+def extract_observation_dates(url):
+    website = requests.get(url)
+    soup = BeautifulSoup(website.text, 'html.parser')
 
     result = {}
 
@@ -58,7 +60,7 @@ def extract_species_counts(file_path, azuay_data):
  
 
 
-azuay_data = extract_observation_dates('azuay_list.html')
+azuay_data = extract_observation_dates('https://ebird.org/region/EC-A/bird-list')
 azuay_counts = extract_species_counts('azuay_filter.html', azuay_data)
 
 sorted_data = dict(sorted(

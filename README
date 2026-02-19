@@ -1,12 +1,12 @@
 make pip
 make diff_filters
 
-To verify the Azuay filter is working well:
+To verify the Canar filter is working well:
 make verify_filter
 
 To get the infos:
 https://review.ebird.org/admin/viewFilter.htm?checklistID=CL24828 => Save as active_filter.html
-https://review.ebird.org/admin/viewFilter.htm?checklistID=CL34068 => Save as azuay_filter.html
+https://review.ebird.org/admin/viewFilter.htm?checklistID=CL34436 => Save as canar_filter.html
 
 __________
 

@@ -28,7 +28,7 @@ def extract_observation_dates(url):
     return result
 
 
-def extract_species_counts(file_path, azuay_data):
+def extract_species_counts(file_path, region_data):
     with open(file_path, encoding='utf-8') as f:
         soup = BeautifulSoup(f, 'html.parser')
 
@@ -49,8 +49,8 @@ def extract_species_counts(file_path, azuay_data):
             else:
             	value = input_span.get('value')
             ebird_name = li.get('id').replace('_out', '')
-            if ebird_name in azuay_data:
-            	species_map[name] = azuay_data[ebird_name]
+            if ebird_name in region_data:
+            	species_map[name] = region_data[ebird_name]
             else:
                 species_map[name] = dict()
             species_map[name]['value'] = int(value)
@@ -60,11 +60,11 @@ def extract_species_counts(file_path, azuay_data):
  
 
 
-azuay_data = extract_observation_dates('https://ebird.org/region/EC-A/bird-list')
-azuay_counts = extract_species_counts('azuay_filter.html', azuay_data)
+region_data = extract_observation_dates('https://ebird.org/region/EC-F/bird-list')
+region_counts = extract_species_counts('canar_filter.html', region_data)
 
 sorted_data = dict(sorted(
-    azuay_counts.items(),
+    region_counts.items(),
     key=lambda item: item[1].get('last_seen', datetime.min),
     reverse=True
 ))
